@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
         if(user.getBot())
            return UserType.BOT;
 
-        if(!BotUtil.userHasPhoto(getUserProfilePhotos(user))){
+        if(user.getUserName()==null && !BotUtil.userHasPhoto(getUserProfilePhotos(user))){
            return UserType.SPAMER;
         }
 
